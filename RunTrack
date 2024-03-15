@@ -1,0 +1,92 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class CoinCollectingGame {
+    private static final int TRACK_COUNT = 3;
+    private static final int TRACK_WIDTH = 10;
+    private static final char PLAYER_SYMBOL = 'P';
+    private static final char COIN_SYMBOL = '$';
+    private static final char EMPTY_SYMBOL = '-';
+    private static final int MAX_COINS_PER_TRACK = 3;
+
+    private int playerPosition;
+    private int[] coinPositions;
+
+    public CoinCollectingGame() {
+        playerPosition = TRACK_COUNT / 2; // Start in the middle track
+        coinPositions = new int[TRACK_COUNT];
+        generateCoins();
+    }
+
+    private void generateCoins() {
+        Random random = new Random();
+        for (int i = 0; i < TRACK_COUNT; i++) {
+            coinPositions[i] = random.nextInt(MAX_COINS_PER_TRACK + 1); // Generate random coins on each track
+        }
+    }
+
+    private void drawTrack(int trackIndex) {
+        StringBuilder trackBuilder = new StringBuilder();
+        for (int i = 0; i < TRACK_WIDTH; i++) {
+            if (i == playerPosition && trackIndex == 0) {
+                trackBuilder.append(PLAYER_SYMBOL);
+            } else if (coinPositions[trackIndex] > 0 && i == coinPositions[trackIndex]) {
+                trackBuilder.append(COIN_SYMBOL);
+            } else {
+                trackBuilder.append(EMPTY_SYMBOL);
+            }
+        }
+        System.out.println(trackBuilder.toString());
+    }
+
+    public void drawGame() {
+        for (int i = 0; i < TRACK_COUNT; i++) {
+            drawTrack(i);
+        }
+    }
+
+    public void movePlayerLeft() {
+        if (playerPosition > 0) {
+            playerPosition--;
+        }
+    }
+
+    public void movePlayerRight() {
+        if (playerPosition < TRACK_COUNT - 1) {
+            playerPosition++;
+        }
+    }
+
+    public boolean collectCoin() {
+        if (coinPositions[playerPosition] > 0) {
+            coinPositions[playerPosition]--;
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        CoinCollectingGame game = new CoinCollectingGame();
+
+        System.out.println("Welcome to the Coin Collecting Game!");
+
+        while (true) {
+            game.drawGame();
+            System.out.println("Move left (l) or right (r): ");
+            String input = scanner.next();
+            if (input.equalsIgnoreCase("l")) {
+                game.movePlayerLeft();
+            } else if (input.equalsIgnoreCase("r")) {
+                game.movePlayerRight();
+            } else {
+                System.out.println("Invalid input! Please enter 'l' to move left or 'r' to move right.");
+                continue;
+            }
+
+            if (game.collectCoin()) {
+                System.out.println("You collected a coin!");
+            }
+        }
+    }
+}
