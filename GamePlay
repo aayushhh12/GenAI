@@ -1,0 +1,55 @@
+Gameplay Model: Coin Collecting Game
+Objective:
+The objective of the Coin Collecting Game is to collect as many coins as possible while navigating through a series of tracks and avoiding obstacles.
+
+Mechanics:
+Player Character:
+
+The player controls a character represented by a symbol (e.g., 'P') that moves horizontally across three tracks.
+The character can move left or right to switch between tracks.
+Tracks:
+
+The game environment consists of three parallel tracks (t1, t2, t3) where coins are scattered.
+Each track has a limited width, and the player character moves within this width.
+Coins:
+
+Coins are collectible items scattered across the tracks.
+Coins appear randomly on any track and disappear after a certain time if not collected.
+Obstacles:
+
+Obstacles such as barriers, moving obstacles, or hazards obstruct the player's path.
+Colliding with obstacles results in penalties, such as loss of collected coins or decrease in player score.
+Scoring:
+
+Players earn points for each coin collected.
+Points may vary based on the rarity or difficulty of reaching certain coins.
+Time Limit:
+
+The game may feature a time limit within which the player must collect coins and reach a specific goal.
+Running out of time results in the end of the game session.
+Power-Ups (Optional):
+
+Power-ups such as speed boosts, shields, or temporary invincibility may appear to aid the player or provide advantages.
+Progression:
+Level Design:
+
+The game consists of multiple levels, each with increasing difficulty and complexity.
+Higher levels may introduce faster-moving obstacles, narrower tracks, or more challenging coin placements.
+Unlockables:
+
+Players may unlock new characters, tracks, or game modes as they progress through the game or achieve specific milestones.
+High Scores:
+
+The game records and displays the player's high scores for each level or overall gameplay session.
+Players can compete against themselves or other players to achieve higher scores.
+Feedback:
+Visual Feedback:
+
+Visual cues indicate the location of coins, obstacles, and power-ups.
+Animated effects highlight coin collection, collision with obstacles, and other significant events.
+Audio Feedback:
+
+Sound effects accompany coin collection, collision with obstacles, and successful completion of levels.
+Background music sets the tone and atmosphere of the game.
+Conclusion:
+The Coin Collecting Game offers a simple yet engaging gameplay experience where players navigate through tracks, collect coins, and avoid obstacles to achieve high scores and progress through levels. With its intuitive mechanics, challenging level design, and rewarding progression system, the game provides hours of entertainment and replay value for players of all ages.
