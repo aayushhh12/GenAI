@@ -1,0 +1,29 @@
+Persona Pattern: Coin Collecting Game
+Persona: Player
+Description:
+
+Name: Sadguru
+Role: Player in the Coin Collecting Game
+Goal: Collect as many coins as possible while avoiding obstacles and maximizing points.
+Characteristics:
+
+Enthusiastic about gaming experiences.
+Quick to learn and adapt to new game mechanics.
+Seeks challenges and opportunities for growth.
+Patient and persistent in overcoming obstacles.
+Behaviors:
+
+Initiation: Launches the Coin Collecting Game.
+Exploration:
+Observes the game environment to understand the layout of tracks and coin positions.
+Begins moving the player character left or right to collect coins.
+Engagement:
+Utilizes the keyboard input ('l' for left, 'r' for right) to navigate the player character.
+Strategically maneuvers the player character to collect coins while avoiding collisions with obstacles.
+Feedback:
+Reacts to successful coin collection with enthusiasm and satisfaction.
+Adjusts strategies based on feedback from missed coin collection or collisions.
+Completion:
+Continues playing the game until satisfied with the accumulated points or until deciding to exit.
+Reflects on the gaming experience and considers strategies for future sessions.
+End Goal: Achieve a high score by collecting the maximum number of coins and mastering the game mechanics.
