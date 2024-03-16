@@ -9,11 +9,13 @@ public class CoinCollectingGame {
     private static final char EMPTY_SYMBOL = '-';
     private static final int MAX_COINS_PER_TRACK = 3;
 
-    private int playerPosition;
+    private int playerPositionX;
+    private int playerPositionY;
     private int[] coinPositions;
 
     public CoinCollectingGame() {
-        playerPosition = TRACK_COUNT / 2; // Start in the middle track
+        playerPositionX = TRACK_WIDTH / 2; // Start in the middle of the track
+        playerPositionY = TRACK_COUNT / 2; // Start in the middle track
         coinPositions = new int[TRACK_COUNT];
         generateCoins();
     }
@@ -28,7 +30,7 @@ public class CoinCollectingGame {
     private void drawTrack(int trackIndex) {
         StringBuilder trackBuilder = new StringBuilder();
         for (int i = 0; i < TRACK_WIDTH; i++) {
-            if (i == playerPosition && trackIndex == 0) {
+            if (i == playerPositionX && trackIndex == playerPositionY) {
                 trackBuilder.append(PLAYER_SYMBOL);
             } else if (coinPositions[trackIndex] > 0 && i == coinPositions[trackIndex]) {
                 trackBuilder.append(COIN_SYMBOL);
@@ -46,20 +48,32 @@ public class CoinCollectingGame {
     }
 
     public void movePlayerLeft() {
-        if (playerPosition > 0) {
-            playerPosition--;
+        if (playerPositionX > 0) {
+            playerPositionX--;
         }
     }
 
     public void movePlayerRight() {
-        if (playerPosition < TRACK_COUNT - 1) {
-            playerPosition++;
+        if (playerPositionX < TRACK_WIDTH - 1) {
+            playerPositionX++;
+        }
+    }
+
+    public void movePlayerUp() {
+        if (playerPositionY > 0) {
+            playerPositionY--;
+        }
+    }
+
+    public void movePlayerDown() {
+        if (playerPositionY < TRACK_COUNT - 1) {
+            playerPositionY++;
         }
     }
 
     public boolean collectCoin() {
-        if (coinPositions[playerPosition] > 0) {
-            coinPositions[playerPosition]--;
+        if (coinPositions[playerPositionY] > 0 && playerPositionX == coinPositions[playerPositionY]) {
+            coinPositions[playerPositionY]--;
             return true;
         }
         return false;
@@ -73,14 +87,18 @@ public class CoinCollectingGame {
 
         while (true) {
             game.drawGame();
-            System.out.println("Move left (l) or right (r): ");
+            System.out.println("Move left (l), right (r), up (u), or down (d): ");
             String input = scanner.next();
             if (input.equalsIgnoreCase("l")) {
                 game.movePlayerLeft();
             } else if (input.equalsIgnoreCase("r")) {
                 game.movePlayerRight();
+            } else if (input.equalsIgnoreCase("u")) {
+                game.movePlayerUp();
+            } else if (input.equalsIgnoreCase("d")) {
+                game.movePlayerDown();
             } else {
-                System.out.println("Invalid input! Please enter 'l' to move left or 'r' to move right.");
+                System.out.println("Invalid input! Please enter 'l', 'r', 'u', or 'd'.");
                 continue;
             }
 
